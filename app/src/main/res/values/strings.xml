@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Films</string>
+    <string name="popular">Popular</string>
+    <string name="favorites">Favorites</string>
+    <string name="film_genre_release_year" translatable="false">%1$s (%2$d)</string>
+    <string name="popular_fragment_title">Popular</string>
+    <string name="film_detail_fragment_title">Movie Details</string>
+    <string name="film_genres">&lt;b>Genres:&lt;/b> %1$s</string>
+    <string name="film_countries">&lt;b>Countries:&lt;/b> %1$s</string>
+    <string name="error_message">There was an error while loading data, please check the network connection.</string>
+</resources>
