@@ -69,14 +69,15 @@
                 tools:text="Fantasy (2016)" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/film_favorites"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
                 app:goneUnless="@{film.favorites}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/film_name"
-                app:srcCompat="@android:drawable/star_off" />
+                app:srcCompat="@drawable/ic_favorites_image" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

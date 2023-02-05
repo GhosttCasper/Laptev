@@ -31,10 +31,13 @@ class PopularFragment : Fragment() {
         // Giving the binding access to the FilmViewModel
         binding.viewModel = viewModel
 
-        val adapter = FilmListAdapter {
+        val adapter = FilmListAdapter({
             it.filmId?.let { it1 -> viewModel.getFilmDetails(it1) }
             binding.slidingPaneLayout.openPane()
-        }
+        }, {
+            it.favorites = !it.favorites
+            true
+        })
         // Sets the adapter of the recyclerView RecyclerView
         binding.recyclerView.adapter = adapter
         return binding.root

@@ -12,7 +12,10 @@ import com.example.movies.model.Film
  * This class implements a [RecyclerView] [ListAdapter] which uses Data Binding to present [List]
  * data, including computing diffs between lists.
  */
-class FilmListAdapter(private val onFilmClicked: (Film) -> Unit) :
+class FilmListAdapter(
+    private val onFilmClicked: (Film) -> Unit,
+    private val onFilmLongClicked: (Film) -> Boolean
+) :
     ListAdapter<Film, FilmListAdapter.FilmViewHolder>(
         DiffCallback
     ) {
@@ -34,6 +37,11 @@ class FilmListAdapter(private val onFilmClicked: (Film) -> Unit) :
         val film = getItem(position)
         holder.itemView.setOnClickListener {
             onFilmClicked(film)
+        }
+        holder.itemView.setOnLongClickListener {
+            val longClickWasHandled = onFilmLongClicked(film)
+            notifyItemChanged(position)
+            longClickWasHandled
         }
         holder.bind(film)
     }

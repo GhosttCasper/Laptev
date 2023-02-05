@@ -18,7 +18,7 @@ data class Film(
     val countries: List<Country>,
     val genres: List<Genre>,
     val year: Int,
-    val favorites: Boolean = false,
+    var favorites: Boolean = false,
 )
 
 data class Country(
