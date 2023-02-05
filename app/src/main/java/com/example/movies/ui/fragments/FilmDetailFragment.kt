@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.navArgs
+import androidx.fragment.app.activityViewModels
 import com.example.movies.R
 import com.example.movies.bindImage
 import com.example.movies.databinding.FragmentFilmDetailBinding
@@ -15,8 +14,7 @@ import com.example.movies.setHtmlText
 import com.example.movies.ui.viewmodel.FilmViewModel
 
 class FilmDetailFragment : Fragment() {
-    private val viewModel: FilmViewModel by viewModels()
-    private val navigationArgs: FilmDetailFragmentArgs by navArgs()
+    private val viewModel: FilmViewModel by activityViewModels()
 
     private var _binding: FragmentFilmDetailBinding? = null
     private val binding get() = _binding!!
@@ -27,9 +25,6 @@ class FilmDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFilmDetailBinding.inflate(inflater)
-
-        val id = navigationArgs.filmId
-        viewModel.getFilmDetails(id)
 
         return binding.root
     }

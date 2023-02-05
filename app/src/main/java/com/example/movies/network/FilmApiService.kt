@@ -40,11 +40,11 @@ interface FilmApiService {
      * The @GET annotation indicates that the "films" endpoint will be requested with the GET
      * HTTP method
      */
-    @Headers("X-API-KEY: a4ef3405-dfb2-4120-a62b-365e8538bf65")
+    @Headers("X-API-KEY: e30ffed0-76ab-4dd6-b41f-4c9da2b2735b")
     @GET("api/v2.2/films/top/?type=TOP_100_POPULAR_FILMS")
     suspend fun getFilms(): Films
 
-    @Headers("X-API-KEY: a4ef3405-dfb2-4120-a62b-365e8538bf65")
+    @Headers("X-API-KEY: e30ffed0-76ab-4dd6-b41f-4c9da2b2735b")
     @GET("/api/v2.2/films/{kinopoiskId}")
     suspend fun getFilm(@Path("kinopoiskId") id: Int): Film
 }
