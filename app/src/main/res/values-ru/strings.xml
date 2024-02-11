@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Фильмы</string>
+    <string name="popular">Популярные</string>
+    <string name="favorites">Избранное</string>
+    <string name="popular_fragment_title">Популярные</string>
+    <string name="film_detail_fragment_title">Описание</string>
+    <string name="film_genres">&lt;b>Жанры:&lt;/b> %1$s</string>
+    <string name="film_countries">&lt;b>Страны:&lt;/b> %1$s</string>
+    <string name="error_message">Произошла ошибка при загрузке данных, проверьте подключение к сети</string>
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="film"
+            type="com.example.movies.model.Film" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/film_poster_image"
+                android:layout_width="40dp"
+                android:layout_height="63dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:adjustViewBounds="true"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{film.posterUrlPreview}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/film_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:ellipsize="end"
+                android:maxEms="10"
+                android:maxLines="1"
+                android:text="@{film.nameRu}"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/film_poster_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Rogue One: A Star Wars Story" />
+
+            <TextView
+                android:id="@+id/film_genre_release_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="27dp"
+                android:text="@{@string/film_genre_release_year(film.genres[0].genre.substring(0, 1).toUpperCase() + film.genres[0].genre.substring(1), film.year)}"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintStart_toEndOf="@+id/film_poster_image"
+                app:layout_constraintTop_toBottomOf="@id/film_name"
+                tools:text="Fantasy (2016)" />
+
+            <ImageView
+                android:id="@+id/film_favorites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                app:goneUnless="@{film.favorites}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/film_name"
+                app:srcCompat="@drawable/ic_favorites_image" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
